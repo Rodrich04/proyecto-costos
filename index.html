@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proyecto Contabilidad - Rodrigo Carrillo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilos.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<header>
+  <h1>DIAGNÓSTICO DE COSTOS Y MARGEN DE CONTRIBUCIÓN</h1>
+  <p>Contabilidad II, Universidad Mariano Gálvez, Rodrigo Carrillo</p>
+  <nav>
+    <button class="tab on" data-t="t1">Datos</button>
+    <button class="tab" data-t="t2">Motor de cálculo</button>
+    <button class="tab" data-t="t3">Dashboard</button>
+    <button class="tab" data-t="t4">Simulación</button>
+  </nav>
+</header>
+
+<main>
+  <section id="t1" class="panel on">
+    <h2>Parámetros de la empresa</h2>
+    <p class="nota">Cambia cualquier valor y todo el sistema se recalcula al instante. Montos en quetzales (Q).</p>
+    <div class="grid" id="inputs"></div>
+  </section>
+
+  <section id="t2" class="panel">
+    <h2>Motor de cálculo</h2>
+    <div class="kpis" id="motorKpis"></div>
+    <div class="dos">
+      <div><h3>Estado de resultados, costeo absorbente</h3><div id="tAbs"></div></div>
+      <div><h3>Estado de resultados, costeo directo</h3><div id="tDir"></div></div>
+    </div>
+    <h3>Reconciliación de utilidades</h3>
+    <div id="recon" class="recon"></div>
+  </section>
+
+  <section id="t3" class="panel">
+    <h2>Tablero de control</h2>
+    <div class="kpis" id="kpis"></div>
+    <div class="dos">
+      <div class="caja"><h3>Utilidad: absorbente vs. directo</h3><div class="chart"><canvas id="g1"></canvas></div></div>
+      <div class="caja"><h3>Comportamiento de costos: fijos vs. variables</h3><div class="chart"><canvas id="g2"></canvas></div></div>
+    </div>
+  </section>
+
+  <section id="t4" class="panel">
+    <h2>Simulación what-if</h2>
+    <p class="nota">Mueve las barras para ver el efecto sobre la utilidad. Por defecto: producción +20% con ventas iguales.</p>
+    <div class="dos">
+      <div class="caja">
+        <div id="sliders"></div>
+        <label class="chk"><input type="checkbox" id="c_ven"> Mantener ventas iguales (ignora la barra de ventas)</label>
+        <label class="chk"><input type="checkbox" id="c_cap"> Producir exactamente a capacidad normal</label>
+      </div>
+      <div class="caja"><h3>Base vs. escenario</h3><div class="chart"><canvas id="g3"></canvas></div></div>
+    </div>
+    <div id="simTabla"></div>
+  </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
